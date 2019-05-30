@@ -20,14 +20,14 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <TextField fx:id="userNameField" layoutX="126.0" layoutY="125.0" />
+            <TextField fx:id="name" layoutX="126.0" layoutY="125.0" />
             <Label layoutX="175.0" layoutY="165.0" text="Passwort">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Button fx:id="loginButton" layoutX="175.0" layoutY="232.0" mnemonicParsing="false" onAction="#login" text="Login" />
-            <PasswordField fx:id="passwordField" layoutX="126.0" layoutY="182.0" />
+            <PasswordField fx:id="password" layoutX="126.0" layoutY="182.0" />
+            <Button layoutX="175.0" layoutY="233.0" mnemonicParsing="false" onAction="#login" text="Login" />
          </children>
       </AnchorPane>
    </children>
