@@ -1,20 +1,18 @@
 package login;
 
 public class ModelLogin {
-	
-	private String userName;
-	private String password;
-	
-	public String getUserName() {
-		return userName;
-	}
-	public void setUserName(String userName) {
+
+	private final String userName;
+	private final String password;
+
+	public ModelLogin(String userName, String password) {
+
 		this.userName = userName;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	boolean isCorrectCredentials(String userName, String password) {
+
+		return this.userName.equals(userName) && this.password.equals(password);
 	}
 }

@@ -1,34 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="290.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.ControllerLogin">
-   <children>
-      <AnchorPane prefHeight="290.0" prefWidth="400.0">
-         <children>
-            <Label alignment="CENTER" layoutX="150.0" layoutY="38.0" prefHeight="30.0" prefWidth="100.0" text="Login">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Label>
-            <Label layoutX="159.0" layoutY="108.0" text="Benutzername">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Label>
-            <TextField fx:id="name" layoutX="126.0" layoutY="125.0" />
-            <Label layoutX="175.0" layoutY="165.0" text="Passwort">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Label>
-            <PasswordField fx:id="password" layoutX="126.0" layoutY="182.0" />
-            <Button layoutX="175.0" layoutY="233.0" mnemonicParsing="false" onAction="#login" text="Login" />
-         </children>
-      </AnchorPane>
-   </children>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity"
+	minHeight="-Infinity" minWidth="-Infinity" prefHeight="290.0"
+	prefWidth="400.0" xmlns="http://javafx.com/javafx/8"
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="login.ControllerLogin">
+	<children>
+		<AnchorPane prefHeight="290.0" prefWidth="400.0">
+			<children>
+				<Label alignment="CENTER" layoutX="150.0" layoutY="38.0"
+					prefHeight="30.0" prefWidth="100.0" text="Login">
+					<font>
+						<Font name="System Bold" size="20.0" />
+					</font>
+				</Label>
+				<Label layoutX="159.0" layoutY="108.0" text="Benutzername">
+					<font>
+						<Font name="System Bold" size="12.0" />
+					</font>
+				</Label>
+				<TextField fx:id="userNameField" layoutX="126.0"
+					layoutY="125.0" onKeyPressed="#loginEnter" />
+				<Label layoutX="175.0" layoutY="165.0" text="Passwort">
+					<font>
+						<Font name="System Bold" size="12.0" />
+					</font>
+				</Label>
+				<PasswordField fx:id="passwordField" layoutX="126.0"
+					layoutY="182.0" onKeyPressed="#loginEnter" />
+				<Button fx:id="loginButton" layoutX="175.0" layoutY="233.0"
+					mnemonicParsing="false" onAction="#login" text="Login" />
+				<Label fx:id="hintLabel" layoutX="42.0" layoutY="207.0"
+					text="Benutzername oder Passwort falsch! Login nicht erfolgreich."
+					textFill="#f51b1b" visible="false" />
+			</children>
+		</AnchorPane>
+	</children>
 </VBox>
