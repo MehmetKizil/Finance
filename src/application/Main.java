@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import login.ControllerLogin;
 
+
 public class Main extends Application {
 
 	private Stage primaryStage;
@@ -54,7 +55,8 @@ public class Main extends Application {
 	public void startRevenue() throws Exception {
 		try {
 			FXMLLoader revenueLoader = new FXMLLoader(getClass().getResource("/revenue/RevenueUI.fxml"));
-			rootRevenue = revenueLoader.load();
+			rootRevenue = revenueLoader.load();			
+			
 			Stage revenueStage = new Stage();
 			Scene revenueScene = new Scene(rootRevenue, 333, 200);
 			revenueStage.setScene(revenueScene);

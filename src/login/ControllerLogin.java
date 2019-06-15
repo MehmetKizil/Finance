@@ -29,7 +29,6 @@ public class ControllerLogin {
 	public void login(ActionEvent event) {
 
 		if (model.isCorrectCredentials(userNameField.getText(), passwordField.getText())) {
-
 			try {
 				main.startApp();
 			} catch (Exception e) {
@@ -42,10 +41,8 @@ public class ControllerLogin {
 
 	@FXML
 	public void loginEnter(KeyEvent event1) {
-
 		if (event1.getCode().equals(KeyCode.ENTER)) {
 			if (model.isCorrectCredentials(userNameField.getText(), passwordField.getText())) {
-
 				try {
 					main.startApp();
 				} catch (Exception e) {

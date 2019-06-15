@@ -6,13 +6,11 @@ public class ModelLogin {
 	private final String password;
 
 	public ModelLogin(String userName, String password) {
-
 		this.userName = userName;
 		this.password = password;
 	}
 
 	boolean isCorrectCredentials(String userName, String password) {
-
 		return this.userName.equals(userName) && this.password.equals(password);
 	}
 }
