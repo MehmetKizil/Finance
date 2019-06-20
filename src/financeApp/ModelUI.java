@@ -6,17 +6,13 @@ import revenue.Revenue;
 
 public class ModelUI {
 
-	private ObservableList<Revenue> data = FXCollections.observableArrayList();
+	private ObservableList<Revenue> revenueList = FXCollections.observableArrayList();
 
-	public ObservableList<Revenue> getData() {
-		return data;
+	public ObservableList<Revenue> getRevenueList() {
+		return revenueList;
 	}
 
-	public void setData(ObservableList<Revenue> data) {
-		this.data = data;
-	}
-
-	public void addData(Revenue revenue1) {
-		data.add(revenue1);
+	public void setRevenueList(ObservableList<Revenue> revenueList) {
+		this.revenueList = revenueList;
 	}
 }

@@ -7,11 +7,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import login.ControllerLogin;
+import revenue.ControllerRevenue;
 
 
 public class Main extends Application {
 
 	private Stage primaryStage;
+	private Stage revenueStage;
 	private Parent root;
 	private Parent rootRevenue;
 
@@ -19,7 +21,6 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws Exception {
 
 		try {
-
 			this.primaryStage = primaryStage;
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/login/LoginUI.fxml"));
 			root = loader.load();
@@ -55,13 +56,24 @@ public class Main extends Application {
 	public void startRevenue() throws Exception {
 		try {
 			FXMLLoader revenueLoader = new FXMLLoader(getClass().getResource("/revenue/RevenueUI.fxml"));
-			rootRevenue = revenueLoader.load();			
-			
-			Stage revenueStage = new Stage();
+			rootRevenue = revenueLoader.load();
+			ControllerRevenue controllerRevenue = revenueLoader.getController();
+			controllerRevenue.setMain(this);
+
+			revenueStage = new Stage();
 			Scene revenueScene = new Scene(rootRevenue, 333, 200);
 			revenueStage.setScene(revenueScene);
 			revenueStage.show();
 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void closeRevenue() throws Exception {
+		try {
+			revenueStage.close();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
