@@ -2,12 +2,14 @@ package application;
 
 import financeApp.ControllerUI;
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import login.ControllerLogin;
 import revenue.ControllerRevenue;
+import revenue.Revenue;
 
 
 public class Main extends Application {
@@ -53,12 +55,13 @@ public class Main extends Application {
 		}
 	}
 
-	public void startRevenue() throws Exception {
+	public void startRevenue(ObservableList<Revenue> list) throws Exception {
 		try {
 			FXMLLoader revenueLoader = new FXMLLoader(getClass().getResource("/revenue/RevenueUI.fxml"));
 			rootRevenue = revenueLoader.load();
 			ControllerRevenue controllerRevenue = revenueLoader.getController();
 			controllerRevenue.setMain(this);
+			controllerRevenue.setObservableList(list);
 
 			revenueStage = new Stage();
 			Scene revenueScene = new Scene(rootRevenue, 333, 200);

@@ -23,28 +23,24 @@ public class ControllerUI implements Initializable{
 	@FXML
 	private TableColumn<Revenue, String> valueColumnRevenue;
 	
-	ModelUI modelUI;
+	private ObservableList<Revenue> revenues = FXCollections.observableArrayList();
 	
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		nameColumnRevenue.setCellValueFactory(new PropertyValueFactory<>("name"));
-		valueColumnRevenue.setCellValueFactory(new PropertyValueFactory<>("value"));
-		listRevenue.setItems(getRevenueList());
-	}
+//	ModelUI modelUI;
 	
 	@FXML
 	public void addRevenue(ActionEvent revenueEvent) {
 		try {
-			mainUI.startRevenue();
+			mainUI.startRevenue(revenues);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public ObservableList<Revenue> getRevenueList() {
-		ObservableList<Revenue> revenues = FXCollections.observableArrayList();
-		revenues.add(new Revenue("Test", 3243));
-		return revenues;
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		nameColumnRevenue.setCellValueFactory(new PropertyValueFactory<>("name"));
+		valueColumnRevenue.setCellValueFactory(new PropertyValueFactory<>("value"));
+		listRevenue.setItems(revenues);
 	}
 	
 	public void setMainUI(Main mainUI) {
