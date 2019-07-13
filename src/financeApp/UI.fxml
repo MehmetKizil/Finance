@@ -8,7 +8,7 @@
 
 <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="593.0" prefWidth="1022.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="financeApp.ControllerUI">
 	<tabs>
-		<Tab text="Januar">
+		<Tab text="Test">
 			<content>
 				<GridPane>
 					<columnConstraints>
@@ -66,17 +66,17 @@
 												<Font name="System Bold" size="25.0" />
 											</font>
 										</Label>
-										<Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" text="+">
+										<Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#addOutgoing" prefHeight="41.0" prefWidth="41.0" text="+">
 											<font>
 												<Font name="System Bold" size="18.0" />
 											</font>
 										</Button>
 									</children>
 								</HBox>
-								<TableView prefHeight="387.0" prefWidth="511.0">
+								<TableView fx:id="listOutgoing" prefHeight="387.0" prefWidth="511.0">
 									<columns>
-										<TableColumn prefWidth="420.0" text="Name" />
-										<TableColumn prefWidth="102.0" text="Betrag" />
+										<TableColumn fx:id="nameColumnOutgoing" prefWidth="420.0" text="Name" />
+										<TableColumn fx:id="valueColumnOutgoing" prefWidth="102.0" text="Betrag" />
 									</columns>
 								</TableView>
 								<HBox prefHeight="100.0" prefWidth="200.0">

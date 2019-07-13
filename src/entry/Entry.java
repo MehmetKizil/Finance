@@ -1,15 +1,11 @@
-package revenue;
+package entry;
 
-public class Revenue {
+public class Entry {
 
 	private String name;
 	private double value;
 	
-	public Revenue() {
-		
-	}
-	
-	public Revenue(String name, double value) {
+	public Entry(String name, double value) {
 		this.name = name;
 		this.value = value;
 	}

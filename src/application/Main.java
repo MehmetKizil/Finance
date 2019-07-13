@@ -1,5 +1,7 @@
 package application;
 
+import entry.ControllerEntry;
+import entry.Entry;
 import financeApp.ControllerUI;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
@@ -8,16 +10,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import login.ControllerLogin;
-import revenue.ControllerRevenue;
-import revenue.Revenue;
-
 
 public class Main extends Application {
 
 	private Stage primaryStage;
-	private Stage revenueStage;
+	private Stage EntryStage;
 	private Parent root;
-	private Parent rootRevenue;
+	private Parent rootEntry;
+	ControllerUI idControllerUI;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -55,27 +55,33 @@ public class Main extends Application {
 		}
 	}
 
-	public void startRevenue(ObservableList<Revenue> list) throws Exception {
+	public void startEntry(ObservableList<Entry> list, boolean entryType) throws Exception {
 		try {
-			FXMLLoader revenueLoader = new FXMLLoader(getClass().getResource("/revenue/RevenueUI.fxml"));
-			rootRevenue = revenueLoader.load();
-			ControllerRevenue controllerRevenue = revenueLoader.getController();
-			controllerRevenue.setMain(this);
-			controllerRevenue.setObservableList(list);
-
-			revenueStage = new Stage();
-			Scene revenueScene = new Scene(rootRevenue, 333, 200);
-			revenueStage.setScene(revenueScene);
-			revenueStage.show();
+			FXMLLoader entryLoader = new FXMLLoader(getClass().getResource("/entry/EntryUI.fxml"));
+			rootEntry = entryLoader.load();
+			ControllerEntry controllerEntry = entryLoader.getController();
+			controllerEntry.setMain(this);
+			if (entryType) {
+				controllerEntry.setObservableRevenueList(list);
+				controllerEntry.setEntryType(true);
+			}else {
+				controllerEntry.setObservableOutgoingList(list);
+				controllerEntry.setEntryType(false);
+			}
+			
+			EntryStage = new Stage();
+			Scene entryScene = new Scene(rootEntry, 333, 200);
+			EntryStage.setScene(entryScene);
+			EntryStage.show();
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	public void closeRevenue() throws Exception {
+	public void closeEntry() throws Exception {
 		try {
-			revenueStage.close();
+			EntryStage.close();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
