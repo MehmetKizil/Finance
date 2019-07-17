@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="593.0" prefWidth="1022.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="financeApp.ControllerUI">
+<TabPane prefHeight="593.0" prefWidth="1022.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="financeApp.ControllerUI">
 	<tabs>
 		<Tab text="Test">
 			<content>
@@ -35,26 +35,18 @@
 										</Button>
 									</children>
 								</HBox>
-								<TableView fx:id="listRevenue" prefHeight="387.0" prefWidth="511.0">
+								<TableView fx:id="listRevenue" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="387.0" prefWidth="511.0">
 									<columns>
 										<TableColumn fx:id="nameColumnRevenue" prefWidth="420.0" text="Name" />
 										<TableColumn fx:id="valueColumnRevenue" prefWidth="90.0" text="Betrag" />
 									</columns>
 								</TableView>
-								<HBox prefHeight="132.0" prefWidth="511.0">
-									<children>
-										<Label alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="344.0" text="Summe: ">
-											<font>
-												<Font size="25.0" />
-											</font>
-										</Label>
-										<Label alignment="CENTER" prefHeight="50.0" prefWidth="165.0" text="Label">
-											<font>
-												<Font size="25.0" />
-											</font>
-										</Label>
-									</children>
-								</HBox>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="sumButton" layoutX="256.0" layoutY="14.0" mnemonicParsing="false" onAction="#setSumLabel" prefHeight="37.0" prefWidth="133.0" text="Summe" />
+                              <Label fx:id="sumRevenueLabel" layoutX="406.0" layoutY="9.0" prefHeight="47.0" prefWidth="91.0" text="Label" />
+                           </children>
+                        </AnchorPane>
 							</children>
 						</VBox>
 						<VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
@@ -73,26 +65,18 @@
 										</Button>
 									</children>
 								</HBox>
-								<TableView fx:id="listOutgoing" prefHeight="387.0" prefWidth="511.0">
+								<TableView fx:id="listOutgoing" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="387.0" prefWidth="511.0" VBox.vgrow="ALWAYS">
 									<columns>
 										<TableColumn fx:id="nameColumnOutgoing" prefWidth="420.0" text="Name" />
 										<TableColumn fx:id="valueColumnOutgoing" prefWidth="102.0" text="Betrag" />
 									</columns>
 								</TableView>
-								<HBox prefHeight="100.0" prefWidth="200.0">
-									<children>
-										<Label alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="344.0" text="Summe: ">
-											<font>
-												<Font size="25.0" />
-											</font>
-										</Label>
-										<Label alignment="CENTER" prefHeight="50.0" prefWidth="166.0" text="Label">
-											<font>
-												<Font size="25.0" />
-											</font>
-										</Label>
-									</children>
-								</HBox>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Button layoutX="265.0" layoutY="17.0" mnemonicParsing="false" onAction="#setSumOutLabel" prefHeight="37.0" prefWidth="133.0" text="Summe" />
+                              <Label fx:id="sumOutgoingLabel" layoutX="406.0" layoutY="12.0" prefHeight="47.0" prefWidth="91.0" text="Label" />
+                           </children>
+                        </AnchorPane>
 							</children>
 						</VBox>
 					</children>

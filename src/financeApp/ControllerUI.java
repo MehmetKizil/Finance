@@ -9,6 +9,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -28,6 +30,14 @@ public class ControllerUI implements Initializable{
 	private TableColumn<Entry, String> nameColumnOutgoing;
 	@FXML
 	private TableColumn<Entry, String> valueColumnOutgoing;
+	@FXML
+	private Label sumRevenueLabel;
+	@FXML
+	private Label sumOutgoingLabel;
+	@FXML
+	private Button sumButton;
+	
+	ModelUI modelUI = new ModelUI();
 	
 	private ObservableList<Entry> revenues = FXCollections.observableArrayList();
 	private ObservableList<Entry> outgoingList = FXCollections.observableArrayList();
@@ -45,6 +55,24 @@ public class ControllerUI implements Initializable{
 	public void addOutgoing (ActionEvent outgoingEvent) {
 		try {
 			mainUI.startEntry(outgoingList, false);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@FXML
+	public void setSumLabel(ActionEvent sumEvent) {
+		try {
+			sumRevenueLabel.setText(Double.toString(modelUI.sumRevenue(revenues)));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@FXML
+	public void setSumOutLabel(ActionEvent sumOutgoingEvent) {
+		try {
+			sumOutgoingLabel.setText(Double.toString(modelUI.sumOutgoing(outgoingList)));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
