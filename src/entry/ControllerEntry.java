@@ -3,8 +3,6 @@ package entry;
 import java.net.URL;
 import java.util.ResourceBundle;
 import application.Main;
-import financeApp.ControllerUI;
-import financeApp.ModelUI;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,8 +20,6 @@ public class ControllerEntry implements Initializable {
 	private ObservableList<Entry> observableOutgoingList;
 	
 	boolean entryType;
-	ModelUI modelUI = new ModelUI();
-	ControllerUI controllerUI = new ControllerUI();
 	Main main;
 
 	@Override
@@ -36,8 +32,6 @@ public class ControllerEntry implements Initializable {
 		try {
 			Entry revenue = new Entry(nameField.getText(), Double.parseDouble(valueField.getText()));
 			observableRevenueList.add(revenue);
-			modelUI.sumRevenue(observableRevenueList);
-//			controllerUI.setSumLabel(sum);
 			main.closeEntry();
 		} catch (Exception e) {
 			e.printStackTrace();
